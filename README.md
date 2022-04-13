@@ -1,2 +1,2 @@
 # Scraping Tutorial
-source: https://realpython.com/beautiful-soup-web-scraper-python
+based on: https://realpython.com/beautiful-soup-web-scraper-python
