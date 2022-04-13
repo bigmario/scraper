@@ -1,11 +1,20 @@
-import requests
+import json
 from pprint import pprint
+
+import requests
 from bs4 import BeautifulSoup
 
 from scrapin_data_model import ResultDataModel
 
 
 URL = "https://realpython.github.io/fake-jobs/"
+
+
+def _save_data(data):
+    with open("ScrapingResult.txt", "w") as file:
+        for item in data:
+            job = json.dumps(item.__dict__, indent=4)
+            file.writelines(job)
 
 
 def _get_data(elements):
@@ -19,8 +28,11 @@ def _get_data(elements):
                 link=item.find_all("a", class_="card-footer-item"),
             )
         )
+
     for item in result:
-        item.print_scraping_result()
+        pprint(item.scraping_result())
+
+    _save_data(result)
 
 
 def _scrape(url, session):

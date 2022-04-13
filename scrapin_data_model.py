@@ -5,9 +5,11 @@ class ResultDataModel:
         self.location = location.text.strip()
         self.link = link[1]["href"]
 
-    def print_scraping_result(self):
-        print(self.title)
-        print(self.company)
-        print(self.location)
-        print(self.link)
-        print("\n")
+    def scraping_result(self):
+        result = {
+            "title": self.title,
+            "company": self.company,
+            "location": self.location,
+            "link": self.link,
+        }
+        return result
